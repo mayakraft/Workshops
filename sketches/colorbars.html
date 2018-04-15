@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+html,body{
+	height:100%;
+	margin:0;
+	display: flex;
+	flex-direction: column;
+}
+div{
+	flex:1;
+}
+</style>
+</head>
+<body>
+</body>
+<script>
+var counter = 0;
+while(counter < 10){
+	var d = document.createElement("div");
+	var hue = parseInt(Math.random()*360);
+	var color = "hsl(" + hue + ", 100%, 50%)";
+	d.style.backgroundColor = color;
+	document.body.appendChild(d);
+	counter = counter + 1;
+}
+</script>
+</html>
