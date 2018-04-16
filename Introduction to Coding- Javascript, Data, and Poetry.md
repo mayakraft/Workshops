@@ -1,20 +1,21 @@
-# Introduction to Coding, Javascript, and Poetry
+# Introduction to Coding: Javascript, Data, and Poetry
 
 ### May 7, The Metropolitan Library Council of New York
 
 ## Program Outline
 
-1. "What is code?"
-2. HTML and CSS
-3. Javascript
+1. "What is code?" (15 min)
+2. HTML and CSS (30 min)
+3. Javascript: Memory & Loops (2 hr)
    * Storage
    * Arithmetic
    * Control Flow
-4. Functions
+4. Javascript: Functions (1 hr)
    * Event Handlers
    * Callbacks
-5. Data: JSON
-6. Generative Systems
+5. Data: JSON (45 min)
+   * Fetch from the internet
+6. Generative Systems (45 min)
 
 ### Summary of in-class exercises
 
@@ -178,7 +179,7 @@ h1{
 
 ## 3. Javascript
 
-> ### DURATION: 1 HOUR 30 MINUTES
+> ### DURATION: 2 HOURS
 
 > * Variables and types:
 >    * boolean, string, number
@@ -290,7 +291,7 @@ This is *one line* of javascript. Many lines of Javascript (but not all) end wit
 
 Javascript is a language, like English, and there are many rules that dictate order: strict rules (the computer crashes) and rules meant for elegance (the computer understands both).
 
-### Type 1: Strings
+### String: the first variable type
 
 This type of variable is called a *string*. String means collection of characters. It can have spaces, and punctuation too. What are some of the wildest characters you can think of?
 
@@ -299,14 +300,14 @@ This type of variable is called a *string*. String means collection of character
 * emojis!
 
 ```javascript
-var string1 = "Robby! $$$ 123 #😇✌️😀";
+var string1 = "123 Robby! #😇✌️😀";
 ```
 
 Why do we need `" "` marks?
 
 > *so the computer knows we're not writing a variable name! Also we can put spaces in there.*
 
-### Type 2: Number
+### Number: the second variable type
 
 ```javascript
 var answer = .25 * 133;
@@ -361,6 +362,18 @@ The 5 no longer exists. we lost it. it is gone from the memory of the computer.
 >
 > remember what var does: `var` tells the computer to carve out a little spot in memory. dig a hole in the garden. once that hole exists you can keep using it.
 
+#### Question: What happens when you add a string and a number?
+
+*"The number turns into a string and is **appended** to the string"*
+
+The plus sign means something different between 2 strings.
+
+```javascript
+var first = "Robby";
+var last = "Kraft";
+var fullname = first + " " + last;
+```
+
 ### i = i + 1
 
 check out this line of code
@@ -398,7 +411,7 @@ now this looks familiar! this is going to store 9 into total. We are going to us
 
 *"take whatever is in **total** and increment it by 1"*
 
-### Type 3: boolean
+### Boolean: the third variable type
 
 Do you all remember "greater than" and "less than" symbols from math class?
 
@@ -507,11 +520,17 @@ it's up to you if you like to squeeze everything on one line, or break things ou
 
 ## 3c. Javascript: Control Flow
 
-> ### DURATION:
+Normally the computer reads every line of code, from top to bottom, stopping when it gets to the end. There are different ways we can deviate from this. We can ask the computer to:
+
+* skip over a bit of code, depending on a condition.
+* repeat a bit of code over and over.
+* make an event (like a button press) cause a bit of code to run.
+
+Let's play with the second one: repeat code over and over.
 
 ### `while(){}`
 
-this is a while loop
+This is a **while loop**:
 
 * it repeats as long as the `( )` is true
 * it runs the code inside the `{ }`
@@ -582,8 +601,6 @@ while(counter < 10){
 ### Exercise: 1,000,000 Fibonacci Numbers or fixed-width Sierpinski triangle
 
 ## 3a. (again) Javascript: Store Stuff (containers)
-
-> ### DURATION: 30 MINUTES
 
 We're getting into *real programming*, now we're getting into *real data*.
 
@@ -715,7 +732,7 @@ friends[randomNumber];
 
 ## 4. Functions 
 
-> ### DURATION: 45 MINUTES 
+> ### DURATION: 1 HOUR 
 
 Functions are blocks of code that we can package up and forget about. We can call them later, and they are very useful if we find ourselves **repeating code**.
 
@@ -900,6 +917,10 @@ and those are... what again? temperature, then humidity, then chance of rain, ri
 
 that's the **problem**, we don't know what those number are, they don't have *labels*.
 
+## 5. Data: Javascript Object Notation
+
+> ### DURATION: 45 MINUTES
+
 ### Objects, the final container type
 
 Imagine solving our problem with 2 arrays.
@@ -1029,7 +1050,7 @@ keys will be the names of the students. let's fill out the object for ourselves:
 ```javascript
 var classmates = {
   "Robby" : {
-    "breakfast" : "scrambled eggs",
+    "color" : "#0066FF",
     "animal" : "elephant"
   }
 }
@@ -1048,27 +1069,27 @@ Let's add a few more students
 ```javascript
 var classmates = {
   "Robby" : {
-    "breakfast" : "scrambled eggs",
+    "color" : "#0066FF",
     "animal" : "elephant"
   },
   "Leo" : {
-    "breakfast" : "bagel with cream cheese",
+    "color" : "black",
     "animal" : "scorpion"
   },
   "Alessio" : {
-    "breakfast" : "juice",
+    "color" : "#C08020",
     "animal" : "squirrel"
   }
 }
 ```
 
-Notice the lines with `},`, we need to put commas between entries. it's easier to see if the object was brief and fit on one line:
+Notice the lines with `},` we need to put commas between entries. it's easier to see if the object was brief and fit on one line:
 
 ```javascript
 {
-  "Robby" : {"a":5},
-  "Leo" : {"a":3},
-  "Alessio" : {"a":8}
+  "Robby" : {"hours" : 5},
+  "Leo" : {"hours" : 3},
+  "Alessio" : {"hours" : 8}
 }
 ```
 
@@ -1076,6 +1097,326 @@ The last one is the only one without a comma.
 
 console.log our classmates variable, and look at how the object keys are sorted alphabetically.
 
-#### Order is not maintained in objects, only arrays
+#### Order is not maintained in objects, unlike arrays
 
 Variables inside an object don't have a numerical position. There is no order. They just exist under the "key".
+
+### Real weather data from the internet
+
+> Most of the data that gets passed around on the internet **is a Javascript object** (.json file stands for "Javascript object notation")
+
+Check out this minified .json file response from a weather api.
+
+what do you see?
+
+*"objects, numbers, strings, arrays"*
+
+Run the .json through a formatter / beautifier. All this does is add "whitespace" (carriage returns, spaces) to make it more readable.
+
+How do we get at some of the data that is *deep*?
+
+```javascript
+weather["current"]["hourly"][0]["precip"]
+```
+
+I pre-downloaded this file. Asking the internet for data takes a little bit of knowledge and code. Fortunately for us, there is an elegant library that has been around for a long time and is pretty ubiquitous at this point:
+
+### JQuery
+
+JQuery is a set of javascript functions that someone wrote (his name is John and he lives here in New York). It's easy to include into your html file, just add this line at the top:
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  </head>
+  <body>    
+  </body>
+</html>
+```
+
+Now we can use JQuery anywhere in our `<script>` section.
+
+JQuery makes getting data from the internet *really* simple, it's just one line of code:
+
+```javascript
+$.getJSON( url, function(data){ } );
+```
+
+"Calling JQuery" is typing a `$`. It's like saying Math.random(). The random function is inhabiting this library called "Math". getJSON is inhabiting this library called `$` (that's a joke, it's called JQuery).
+
+getJSON function has 2 *arguments* or *parameters*:
+
+- **the url** (string)
+- **the callback** (function)
+
+the url is expecting at the other end is some kind of data file: .json, .csv, .txt even. Type this URL into a browser bar to make sure it pulls up data.
+
+> using an API's url is neat because before you make the call *there is no file at the other end*, instead, the server generates one in realtime.
+
+#### the callback function
+
+Think in terms of nanoseconds and follow the computer as it reads each line:
+
+1. starts at the top, gets to the `$.getJSON(...` part and asks the server for data.
+2. it skips over everything inside of the `function(data){}` and continues running everything **after** the end of the function.
+3. an eternity of nanoseconds pass
+4. the server finally gets back to us and the pointer goes back up to the `function(data){ }` and runs everything inbetween the `{ }`.
+
+in review, your computer reads your program in this order:
+
+1. top to bottom, but skip over the callback
+2. when file is downloaded, go back and run everything *only inside* the callback.
+
+### Exercise: Fetch a JSON
+
+Let's try to fetch a .json from an API. The Citibike API at the moment is free and doesn't require a key. Here is the URL:
+
+```
+"https://api.citybik.es/v2/networks/citi-bike-nyc"
+```
+
+Let's grab the data, console.log it, and see if we can find a station nearby.
+
+### Exercise: Make our own JSON
+
+Create a .json file that is your-name.json which will contain information about you. Read carefully to make sure content is structured uniformly. 
+
+The top level will contain 3 keys: **name**, **home**, **color**:
+
+```javascript
+{
+    "name" : ["Robby", "Kraft"],
+    "home" : {"latitude":40, "longitude":-74},
+    "color" : "#0066FF"
+}
+```
+
+* **name** should be an array of strings.
+* **home** should be an object with 2 keys, latitude and longitude, each value is a number. This is the location you come from or wherever you call home.
+* **color** should be your favorite color, or just a color you like right now, as a 6-digit hex string.
+
+when you are done
+
+1. Validate your .json file: [jsonformatter.curiousconcept.com](jsonformatter.curiousconcept.com)
+2. Upload your .json to your github. 
+3. place a link to your .json file in our class shared document.
+
+### Exercise: Print everyone's names in their favorite color
+
+prerequisite: watch a while loop turn into a for loop
+
+this:
+
+```javascript
+var i = 0;
+while(i < 20){
+    i = i + 1;
+}
+```
+
+is the same as:
+
+```javascript
+for(var i = 0; i < 20; i = i + 1){
+}
+```
+
+so much nicer, right?!
+
+#### Objective 1: download 20 .json files, add each of the contents as an entry in a "classmates" array
+
+```javascript
+var urls = [ ... ];
+var classmates = [];
+for(var i = 0; i < urls.length; i = i + 1){
+  $.getJSON(urls[i], function(data){
+    classmates.push(data);
+    if(classmates.length == urls.length){
+      downloadComplete();
+    }
+  });
+}
+```
+
+#### Objective 2: print every classmate's name onto the page
+
+```javascript
+function downloadComplete(){
+  for(var i = 0; i < classmates.length; i = i+1){
+    var p = document.createElement("p");
+    p.innerHTML = classmates[i].name[0];
+    p.style.color = classmates[i].color;
+    document.body.appendChild(p);
+  }
+}
+```
+
+### Homework: Wrap a hyperlink around each of our classmate's names that links to a Google Map centered on the person's latitude and longitude
+
+Navigate to [maps.google.com](maps.google.com) and drag the map around, see how the latitude and longitude is in the URL bar?
+
+```
+https://www.google.com/maps/@40.706195,-73.9905063,13z
+```
+
+You can manually make a link to a google map location by writing the URL:
+
+```javascript
+var url = "https://www.google.com/maps/@" + lat + "," + lon + ",13z
+```
+
+### Optional Exercise: Our class on Google Maps
+
+If we have enough time, this is a great exercise to do as a class.
+
+Use this Google Maps API Key
+
+```html
+<script src="https://maps.googleapis.com/maps/api/js?key=***************************************&callback=getData"></script>
+```
+
+If we're short on time, use this template for the HTML page:
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+    #map{
+      width:100%;
+      height:500px;
+    }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  </head>
+  <body>
+
+    <div id="map"></div>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=***************************************&callback=getData"></script>
+
+  </body>
+</html>
+```
+
+and drop this `<script>` section
+
+```javascript
+function downloadComplete(){
+  var options = {
+    center: new google.maps.LatLng(40, -74),
+    zoom : 5
+  };
+  var map = new google.maps.Map(document.getElementById("map"), options);
+  for(var i = 0; i < classmates.length; i = i + 1){
+    var lat = classmates[i].home.latitude;
+    var lon = classmates[i].home.longitude;
+    var marker = new google.maps.Marker({position: new google.maps.LatLng(lat, lon)});
+    marker.setMap(map);
+  }
+}
+```
+
+## 6. Generative Content
+
+> ### DURATION: 45 MINUTES
+
+### Markov Chain
+
+If you aren't already familiar with [Project Gutenberg](https://www.gutenberg.org/), try "browse catalog" and take a look around. Everyone select a book. Download "Plain Text UTF-8" format. This gives you a .txt file.
+
+Let's get our HTML ready to upload a file. This is a file upload dialog:
+
+```html
+<input type="file">
+```
+
+Give it an "id" attribute. Your HTML page should look like this:
+
+```html
+<!DOCTYPE html>
+<html>
+  <body>
+    <input type="file" id="file-input">
+  </body>
+</html
+```
+
+Add this bit of Javascript to capture the event of the user uploading a document:
+
+```javascript
+document.getElementById("file-input").onchange = function(){
+  reader.readAsText(this.files[0]);
+}
+var reader = new FileReader();
+reader.onload = function(e) {
+  console.log(reader.result);
+}
+```
+
+When the user presses the "Choose File" button and selects a file, the "onchange" function runs, calling the FileReader, which calls the "onload" function once all the bytes of the files are uploaded into the HTML page.
+
+`console.log(reader.result)` prints out the text contents of the file you just uploaded!
+
+#### Home stretch: Sort the text into a Markov dictionary
+
+Let's stick everything else into a function called "generatePoem" with one argument: the input text.
+
+```javascript
+function generatePoem(text){
+  var words = text.split(/\s+/);
+  console.log(words);
+}
+```
+
+This magical line (regular expressions, check them out!) turns one big block of text into an array of words, having separated them by newlines and spaces.
+
+The next step gets at the heart of what a Markov chain is. We are going to build an object where each key is a word in the document. Undoubtably, words will appear more than once. The value associated with each key (remember each key is a word in the text) is an array of words **that follow the word in the source text**. 
+
+So for example, the word "carefully" appears 11 times and is followed by a unique word each time:
+
+```javascript
+["provided", "shut", "aimed,", "in", "watched", "so", "among", "noted", "took", "studying", "about"]
+```
+
+Here is the code to build a Markov dictionary:
+
+```javascript
+function generatePoem(text){
+  var words = text.split(/\s+/);
+
+  var dictionary = {};
+  for(var i = 0; i < words.length-1; i = i + 1){
+    var word = words[i];
+    var nextword = words[i+1];
+    if(dictionary[word] == undefined){
+      dictionary[word] = [];
+    }
+    dictionary[word].push(nextword);
+  }
+  console.log(dictionary);
+}
+```
+
+Once we get this, all we need is a seed word, one random word from the text and we can generate content like this:
+
+1. ask the Markov dictionary for the array of words for the seed word. ("carefully" will give you 11 words)
+2. choose a word at random from this list of words (remember these are words that follow the seed word)
+3. this selected word becomes your new seed word, go back to step 1. repeat as many times as you like.
+
+Ask the computer to print the result and read it out loud. It sounds really weird! The generative algorithm has no concept of language, there is no linguistic cohesion, but it does obey local rules. It's a peek into a world of a computer attempting (very poorly) to learn. And occasionally the turn of phrases it comes up with are wicked clever.
+
+From Jule's Verne's 20,000 Leagues Under the Sea
+
+> *I want to the status of all my eyes!*
+
+or
+
+> *they must come for every sail freely. To my head got a culpable action, a seaweed which kept at the surface of this basin of the globe the wire of the full refund from my great rapidity. I could not be the Nautilus was sensible advice*
+
+or
+
+> *That is nothing but in the water in perfect negative.*
+

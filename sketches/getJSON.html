@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+<script>
+var url = "https://api.citybik.es/v2/networks/citi-bike-nyc";
+$.getJSON( url, function(data){
+	console.log(data);
+	for(var i = 0; i < stations.length; i = i+1){
+		var p = document.createElement("p");
+		p.innerHTML = stations[i].free_bikes + " : " + stations[i].name;
+		document.body.appendChild(p);
+	}
+} );
+</script>
+</body>
+</html>

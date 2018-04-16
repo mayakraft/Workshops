@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<body>
+<input type="file" id="file-input">
+<script>
+document.getElementById("file-input").onchange = function(){
+	reader.readAsText(this.files[0]); // , encoding);
+}
+var reader = new FileReader();
+reader.onload = function(e) {
+	// console.log(e.target.result);
+	// console.log(reader.result);
+	generatePoem( reader.result );
+}
+
+function generatePoem(text){
+	var words = text.split(/\s+/);
+	var dictionary = {};
+
+	for(var i = 0; i < words.length-1; i = i + 1){
+		var word = words[i];
+		var nextword = words[i+1];
+		if(dictionary[word] == undefined){
+			dictionary[word] = [];
+		}
+		dictionary[word].push(nextword);
+	}
+
+	console.log(dictionary);
+
+	var startword = words[ Math.floor( Math.random() * words.length ) ];
+
+	var phrase = [ startword ];
+
+	for(var i = 0; i < 100; i++){
+		var word = phrase[i];
+		var nextwords = dictionary[word];
+		var nextword = nextwords[ Math.floor(Math.random()*nextwords.length) ];
+		phrase.push(nextword);
+	}
+
+	console.log(phrase);
+
+	for(var i = 0; i < phrase.length; i++){
+		document.body.innerHTML += phrase[i] + " ";
+	}
+}
+
+</script>
+</body>
+</html>

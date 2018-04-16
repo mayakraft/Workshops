@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+div{ position:absolute; }
+</style>
+</head>
+<script>
+function randomInt(low, high){
+	var random = parseInt( Math.random()*(high-low)+low);
+	return random;
+}
+
+document.onmousemove = function(event){
+	// console.log(event);
+	var d = document.createElement("div");
+	d.style.backgroundColor = "hsl("+randomInt(200,220)+", 100%, 50%)";
+	var width = randomInt(10,100);
+	var height = randomInt(10,100);
+	d.style.width = width + "px";
+	d.style.height = height + "px";
+	d.style.top = event.y - height/2 + "px";
+	d.style.left = event.x - width/2 + "px";
+	document.body.appendChild(d);
+}
+</script>
+</html>
