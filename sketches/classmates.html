@@ -5,24 +5,16 @@
 </head>
 <body>
 <script>
-var urls = [ ... ];
-var classmates = [];
-for(var i = 0; i < urls.length; i = i + 1){
-	$.getJSON(urls[i], function(data){
-		classmates.push(data);
-		if(classmates.length == urls.length){
-			downloadComplete();
-		}
-	});
-}
-function downloadComplete(){
+var url = "";
+$.getJSON(url, function(data){
+	var classmates = data.classmates;
 	for(var i = 0; i < classmates.length; i = i+1){
 		var p = document.createElement("p");
 		p.innerHTML = classmates[i].name[0];
 		p.style.color = classmates[i].color;
 		document.body.appendChild(p);
 	}
-}
+});
 </script>
 </body>
 </html>

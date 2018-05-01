@@ -23,30 +23,21 @@
 * Dice roll
 * Random friend picker
 * Generative color swatch
-* Sierpinski Triangle
-* ONE MILLION DOLLARS
+* One million dollars
 * Drawing with the mouse
 * Create a JSON
 * Classmates on Google Maps
 * Markov-chain poetry
 
-### Summary of homework assignments
-
-* Non-linear Narrative: Choose your own Adventure
-
 ### Student prep
 
-1. Create one folder (anywhere on your computer), this will house all our files.
-2. Create an account with Github.
+1. Download [Sublime Text](http://www.sublimetext.com) and [Chrome Browser](http://www.google.com/chrome/)
+2. Create one folder (anywhere on your computer), this will house all our files.
 
 ### Teacher prep
 
-1. Create a shared doc, and share the link with the class.
+1. Create a shared doc (Google Docs, Dropbox Paper) and share the link with the class.
 
-### Software
-
-* [Sublime Text](http://www.sublimetext.com)
-* [Chrome Browser](http://www.google.com/chrome/)
 
 ---
 
@@ -56,36 +47,78 @@
 
 > ### DURATION: 15 MINUTES
 
-### Thought experiment
+### Old Technology
 
-You and your friend are running a printing press. you read the text, they assemble the punches. How do you say to your friend "now switch to bold"?
+#### Imagine
+
+You and your friend are copying a document on a printing press. Your friend is assembling the punches, and your job is to dictate the text and layout. How do you say to your friend "now switch to bold" instead of it sounding like the words "now switch to bold" are inside the text?
 
 * say it louder (change volume)
 * change your inflection
 * make a gesture
 
+If you are limited to only speaking words, you and your friend need to pick a word ahead of time which means "now I'm speaking a style command".
+
+Is there a word that means "style finished, back to text"?
+
+Also, what happens when those special words themselves appears in the text?
+
+#### One after another
+
+Like a flute playing only one note at a time, *serial communication* means bits of information **must** follow one after another, all traveling down the same wire.
+
+*Parallel communication* is many people talking at once. It's a piano playing more than one note at one time. Like many people talking at once, this kind of communication get complicated fast.
+
+Computers read our .html files character by character, one after another. Imagine the *new lines* are invisible characters, the code becomes one long line of text, like sheet music.
+
 ### Peeking inside files: .rtf file format
 
-make a simple .rtf file, open it up in sublime. *"Where did all this extra stuff come from?"*
+Make a simple .rtf file that includes:
+
+* a title with a large font
+* paragraph text with a scattering of font colors, bold, italics.
+
+Open the .rtf file in Sublime Text. *"Where did all this extra stuff come from?"*
 
 > it's the style
 
-it looks like computer code, right? My first impulse is to say "this is unreadable, and meant for the computer". But let's take a second and sit with it. Is there anything we can recognize?
+You might think, "this code is meant for the computer, not for me!" But wait, let's take a second and sit with it. Is there anything we can discern?
 
-* colors
-* fonts
+​                      [ image of a person delivering a letter to a computer "here this is for you" ]
+
+​                     [ image of the computer and person sitting and reading the letter together ]
+
+* the words we typed are hiding between code
+* font names
 * margins, padding
+* colors
 * `\b` means bold
 
-look at how each command starts with a `\` and the command goes until it gets to a space. this is the "say it louder" or "change your inflection" moment.
+Look at how each command starts with a `\` and the command goes until it gets to a space. This is the "say it louder" or "change your inflection" moment.
 
-### *Conclusion*: humans and computers speak 2 different languages.
+### Humans and computers speak two different languages
 
-Computer designers and computer scientists are doing their best to get computers to speak human. they've come a long way. it used to be punch cards, now programming languge uses English.
+Computer scientists and language designers are doing their best to get computers to speak a human language. They've come a long way. It used to be punch cards, now programming languges are incorporating actual English words.
 
-but they haven't come all the way.
+But they haven't come all the way.
 
-we are going to learn how computers speak so that we can meet them halfway. it's not because it makes the computer happier, but it makes us happier, it makes things easier on us when we shape our projects in the way that a computer can attach very easily.
+We're going to learn how computers speak so that we can meet them halfway. It not only makes programming a computer a less-stressful task for us, but also when we have these paradigms internalized we can shape our projects in the way that a computer can most maximally attach itself to and more fully explore an idea.
+
+#### Escape Character
+
+In our thought experiment, we invented an "escape word". An escape word invokes an alternative interpretation for the words that come after. Humans speak in words, computers prefer small units: characters. Each individual character gets interpreted and computers use "escape characters".
+
+Today, escape character more typically refers to escaping the escaped, how to make literal what would normally be code, answering from above: "What happens when that word itself appears in the text?"
+
+### Sheet Music
+
+A piece of code is full of line endings and spaces and page-wrapping. Have you ever seen a piece of sheet music laid out in one line?
+
+[ bach keyboard piece in one line ]
+
+It's incredibly inefficient. To solve this we add line breaks that have **nothing to do with the music itself**. The same for code. It's magnitudes more difficult to read a bit of code that is missing all the nice layout and spacing.
+
+This is true for many languages, it's quickly becoming not true for Javascript.
 
 ### Summary
 
@@ -190,13 +223,13 @@ h1{
 
 Now we get into the **real** programming. The difference, we were only *printing* webpages. We are missing out on using fundamental parts inside the computer:
 
-### 3 things computers can do in a program:
+### Three things computers can do in a computer program
 
 * store stuff (and change it and reuse it)
 * arithmetic (and compare numbers)
 * control flow (choose your own adventure books)
-  * loops
-  * if statement
+
+#### Three languages in one document: HTML, CSS, Javascript
 
 ```html
 <html>
@@ -227,32 +260,35 @@ When the computer sees "var" it's like saying to the computer "we need a spot in
 
 It's like a gardener digging a little hole in the garden. A plant will go there in a moment.
 
-### 5 things that can be planted
+### Three simple things that can be planted
 
-**3 fundamental types**
+There are 3 simple types of variables that can be stored. Each one has unique properties, for example the computer can do math on the numbers, but it can't do math on words.
 
-- boolean
-- string
-- number
+* number
+* string (words)
+* boolean (true or false)
 
-**2 containers**
+Take a preview of what is ahead. All possible variable types:
 
-- array
-- object
+### 3, 2, 1 things that can be planted
 
-> you only have to type "var message" once! after the first time, just type "message"
+* **3 fundamental types**: boolean, string, number
+* **2 containers**: array, object
+* **1 executable**: function
 
-We are going to focus on **fundamental types** and come back to **containers** later.
+We are going to focus on fundamental types and come back to containers and functions later.
 
-> *Picture the magnetic media and microchips inside your computer, by writing"var" you just claimed some realestate **in there**, how powerful, right?!*
+> *Picture the magnetic media and microchips inside your computer, by writing"var" you just claimed some realestate **in there**, how powerful, right?! There are billions of bytes available to you.*
 
 ### Variable Names
 
-We're going to be writing programs that have 20 of these little holes in our garden. We need to be able to say "this one" and "that one over there".
+We made 1 variable. Great! It's easy to keep track of. However, we're going to be writing programs that have 20 of these little holes in our garden. We need to be able to say "this one" and "that one over there".
 
-We need to be able to **name** spots in memory.
+We need to be able to **name** spots in memory. We can't call different spots in memory the same name. Computers like to be *precise*.
 
-> remember, computer reads top-down. Saying `var message` is **declaring** the variable, it exists from that line and every moment after. But if you tried to ask the computer about it *before* it gets declared, it won't know about it.
+> Remember, computer reads top-down. Saying "`var message`" is **declaring** the variable, it exists from that line and every moment after. But if you tried to ask the computer about it *before* it gets declared, it won't know about it.
+
+*you only have to type "var message" once! after the first time, just type "message"*
 
 #### All Possible Variable Names
 
@@ -279,7 +315,7 @@ when I see the equal sign I think about this arrow. This equal sign means
 
 *take the thing on the right and store it into the variable on the left*.
 
-It's not a "truth statement". It's an *action*. If the computer was mechanical, it would boot up it's motors and conveyor belts and start to move this digital object into the spot in memory named "message".
+It's not a "truth statement". It's an *action*. Imagine a steampunk computer that's fully mechanical. This line of code would boot up it's motors and conveyor belts and start to move this digital object into the spot in memory named "message".
 
 ### Syntax
 
@@ -287,9 +323,9 @@ It's not a "truth statement". It's an *action*. If the computer was mechanical, 
 var message = "hello";
 ```
 
-This is *one line* of javascript. Many lines of Javascript (but not all) end with a `;` semicolon. Words in Javascript are separated by spaces, and word-order is important. After `var` Javascript is expecting a one-word name for the variable. 
+This is *one line* of javascript. Many lines of Javascript (but not all) end with a `;` semicolon. Words in Javascript are separated by spaces, and word-order is important. After "`var`" Javascript is expecting a one-word name for the variable.
 
-Javascript is a language, like English, and there are many rules that dictate order: strict rules (the computer crashes) and rules meant for elegance (the computer understands both).
+Javascript is a language, like English, and there are many rules that dictate order: strict rules (the computer crashes) and rules meant for elegance (the computer understands two different approaches to be the same).
 
 ### String: the first variable type
 
@@ -307,6 +343,21 @@ Why do we need `" "` marks?
 
 > *so the computer knows we're not writing a variable name! Also we can put spaces in there.*
 
+#### Unicode
+
+The set of all possible characters we can put in a Javascript string is determined by the Unicode Consortium. It's fascinating to look at the specification, the characters listed earliest in the set were at one point the only ones around, and you might notice they are all characters from Latin-based languages. This is a consequence of the designers only thinking about themselves creating an exclusive design. Unicode produces [charts](http://www.unicode.org/charts/) if you are interested.
+
+There is not only a lot of languages but fun symbols too, like box drawing characters.
+
+```
+                     ╔════════════════════════════════════════╗
+                     ║  ◢◣       Throwback Thursday       ◥◤  ║
+                     ╚═══╤════════════════════════════════╤═══╝
+                         ├────────────────────────────────┤
+                         │                                │
+                         │                                │
+```
+
 ### Number: the second variable type
 
 ```javascript
@@ -321,7 +372,7 @@ console log `answer`, do you notice anything different?
 
 > It's a different color
 
-Numbers are blue. When a number is inside of a string, like `'Robby 123$ !😇✌️😀'` it isn't blue. This variable is a number, the computer recognizes that it can do *math* on it.
+Numbers are blue. When a number is inside of a string, like `'Robby 123$ !😇✌️😀'` it isn't blue. When it prints a number blue, it's the computer telling us that it recognizes this as a number type, and that it can do *math* on it.
 
 Let's do math:
 
@@ -361,6 +412,10 @@ The 5 no longer exists. we lost it. it is gone from the memory of the computer.
 > **Review: why don't you keep writing `var`?**
 >
 > remember what var does: `var` tells the computer to carve out a little spot in memory. dig a hole in the garden. once that hole exists you can keep using it.
+
+#### Numbers that are secretly strings
+
+*Is it possible to make a string that is a number? "`var stringnumber = "5";`" Yep, not blue! Can't do math on it.*
 
 #### Question: What happens when you add a string and a number?
 
@@ -625,6 +680,20 @@ var friends = [];
 ```
 
 This makes an empty container. We call this container an **array**.
+
+#### Arrays group similar data
+
+Arrays solve a problem (a problem you maybe didn't know existed). Think back about variable names. Remember when we ask the computer for memory, we are required to think up a "name" for this spot in memory. That name should *reflect* what's inside. 
+
+If there are 10 spots in memory all having to do with the same kind of data, it's more cumbersome than helpful to think up individual names for each spot! We should call them all just by 1 thing, and count off to get to each one.
+
+"Can I have the 3rd apple?"
+
+"Take 100 sheets of paper."
+
+There is a group of things. 10 apples. 1,000 sheets of paper, you don't have to think up individual names for each sheet of paper. It's a group. And this brings us to the main device when using arrays:
+
+*We use numbers to point to individual things inside an array.*
 
 ### Array
 
@@ -1406,6 +1475,17 @@ Once we get this, all we need is a seed word, one random word from the text and 
 2. choose a word at random from this list of words (remember these are words that follow the seed word)
 3. this selected word becomes your new seed word, go back to step 1. repeat as many times as you like.
 
+```javascript
+var startword = words[ parseInt( Math.random() * words.length ) ];
+var phrase = [ startword ];
+for(var i = 0; i < 100; i++){
+  var word = phrase[i];
+  var nextwords = dictionary[word];
+  var nextword = nextwords[ parseInt(Math.random()*nextwords.length) ];
+  phrase.push(nextword);
+}
+```
+
 Ask the computer to print the result and read it out loud. It sounds really weird! The generative algorithm has no concept of language, there is no linguistic cohesion, but it does obey local rules. It's a peek into a world of a computer attempting (very poorly) to learn. And occasionally the turn of phrases it comes up with are wicked clever.
 
 From Jule's Verne's 20,000 Leagues Under the Sea
@@ -1419,4 +1499,3 @@ or
 or
 
 > *That is nothing but in the water in perfect negative.*
-

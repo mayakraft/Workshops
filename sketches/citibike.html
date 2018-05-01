@@ -7,7 +7,7 @@
 <script>
 var url = "https://api.citybik.es/v2/networks/citi-bike-nyc";
 $.getJSON( url, function(data){
-	console.log(data);
+	var stations = data.network.stations;
 	for(var i = 0; i < stations.length; i = i+1){
 		var p = document.createElement("p");
 		p.innerHTML = stations[i].free_bikes + " : " + stations[i].name;
