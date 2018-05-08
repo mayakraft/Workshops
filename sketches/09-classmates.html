@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<script>
+fetch("")
+	.then(function(response) {
+		return response.json();
+	})
+	.then(function(data) {
+		var classmates = data.classmates;
+		for(var i = 0; i < classmates.length; i = i+1){
+			var p = document.createElement("p");
+			p.innerHTML = classmates[i].name[0];
+			p.style.color = classmates[i].color;
+			document.body.appendChild(p);
+		}
+	});
+</script>
+</body>
+</html>

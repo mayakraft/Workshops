@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<script>
+var url = "https://api.citybik.es/v2/networks/citi-bike-nyc";
+
+fetch(url)
+	.then(function(response) {
+		return response.json();
+	})
+	.then(function(data) {
+		console.log(data);
+		var stations = data.network.stations;
+		for(var i = 0; i < stations.length; i = i+1){
+			var p = document.createElement("p");
+			p.innerHTML = stations[i].free_bikes + " : " + stations[i].name;
+			document.body.appendChild(p);
+		}
+	});
+
+</script>
+</body>
+</html>

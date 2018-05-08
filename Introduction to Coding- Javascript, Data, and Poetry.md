@@ -21,9 +21,9 @@
 
 * Hyperlink between 2 HTML pages
 * Dice roll
-* Random friend picker
-* Generative color swatch
 * One million dollars
+* Generative color swatch
+* Random friend picker
 * Drawing with the mouse
 * Create a JSON
 * Classmates on Google Maps
@@ -65,11 +65,15 @@ Also, what happens when those special words themselves appears in the text?
 
 #### One after another
 
-Like a flute playing only one note at a time, *serial communication* means bits of information **must** follow one after another, all traveling down the same wire.
-
-*Parallel communication* is many people talking at once. It's a piano playing more than one note at one time. Like many people talking at once, this kind of communication get complicated fast.
+Like a flute playing only one note at a time,  bits of information down one wire **must** follow one after another.
 
 Computers read our .html files character by character, one after another. Imagine the *new lines* are invisible characters, the code becomes one long line of text, like sheet music.
+
+[ bach violin solo sheet music in one line ]
+
+(the placement of line breaks in sheet music don't have anything to do with the music itself)
+
+This process of one-after-another is called *serial communication*. If you're interested, *parallel communication* is many people talking at once, or a piano playing more than one note at one time. It requires more complex machinery.
 
 ### Peeking inside files: .rtf file format
 
@@ -98,32 +102,19 @@ Look at how each command starts with a `\` and the command goes until it gets to
 
 ### Humans and computers speak two different languages
 
-Computer scientists and language designers are doing their best to get computers to speak a human language. They've come a long way. It used to be punch cards, now programming languges are incorporating actual English words.
-
-But they haven't come all the way.
+Computer scientists and language designers are doing their best to get computers to speak a human language. They've come a long way. It used to be punch cards, now programming languges are incorporating actual English words. But they haven't come all the way.
 
 We're going to learn how computers speak so that we can meet them halfway. It not only makes programming a computer a less-stressful task for us, but also when we have these paradigms internalized we can shape our projects in the way that a computer can most maximally attach itself to and more fully explore an idea.
 
 #### Escape Character
 
-In our thought experiment, we invented an "escape word". An escape word invokes an alternative interpretation for the words that come after. Humans speak in words, computers prefer small units: characters. Each individual character gets interpreted and computers use "escape characters".
-
-Today, escape character more typically refers to escaping the escaped, how to make literal what would normally be code, answering from above: "What happens when that word itself appears in the text?"
-
-### Sheet Music
-
-A piece of code is full of line endings and spaces and page-wrapping. Have you ever seen a piece of sheet music laid out in one line?
-
-[ bach keyboard piece in one line ]
-
-It's incredibly inefficient. To solve this we add line breaks that have **nothing to do with the music itself**. The same for code. It's magnitudes more difficult to read a bit of code that is missing all the nice layout and spacing.
-
-This is true for many languages, it's quickly becoming not true for Javascript.
+In our thought experiment, we invented an "escape word": a signal to the reader that what comes next is in a differnet context. Computers use smaller units and have "escape characters".
 
 ### Summary
 
 * Vocabulary
-   * escape character
+   * **serial** and **parallel communication**
+   * **escape character**
 * We leared the .rtf file format
 
 ## 2. HTML & CSS in 10 minutes
@@ -132,14 +123,33 @@ This is true for many languages, it's quickly becoming not true for Javascript.
 
 ### Newspaper layout metaphor
 
-* HTML gives a location and layout to elements
-* CSS decorates HTML elements, like font, sizes, color, style
+* HTML gives a position and layout to elements, like above and below, inside, side by side.
+* CSS gives style and decoration to HTML elements, like font, sizes, color.
 
 ### Element
 
 > `<` and `>`, HTML's answer to the problem from our printing press thought experiment.
 
-This is a tag `<h1>` this is the closing tag `</h1>` - wrap an (1) opening tag and a (2) closing tag around a 3rd thing, like text or an image, and the 3 of them together are called an ELEMENT `<h1>hello, friends</h1>`. void elements don't have closing tags, and are things in themselves. `<br> <img> <input>`. elements show up on the page top left justified, the browser might give them padding and margins.
+```
+   CODE:  . . . . . .  <  . . . . . . . . .  >  . . . . . . . . . . . . .
+EXPLAIN:     words        switched context        switch back to words
+```
+
+What goes between the `<` and `>` is, the "switched context", an HTML command.
+
+```
+   words words words   <br>    words words words words
+```
+
+*HTML files don't mind what goes in the "words" section, but it **really minds** what you put between the `< >`.*
+
+`<br>` is an HTML command for *new line*, like pressing the return key (it stands for "break"). There are other simple commands like `<img>` for image, and `<input>` for text-input fields.
+
+This is a tag `<h1>` this is the closing tag `</h1>` - wrap an (1) opening tag and a (2) closing tag around a 3rd thing, like text, and the 3 of them together are called an *element* `<h1>hello, friends</h1>`. 
+
+"Simple elements", elements that don't require a </ > closing tag are called **void elements**.
+
+Elements show up on the page top left justified, the browser might give them padding and margins.
 
 ### Arrangement
 
@@ -148,18 +158,26 @@ Elements attempt to arrange "left to right, top to bottom". Elements stack on th
 * *block* elements push the next item (in the code) to sit BELOW them.
 * *inline* elements make the next item sit NEXT to it (to the right). (you can of course flip things and make everything right justified).
 
+this means, inside the code, it ignores the line breaks.
+
 some block elements: `<p></p>`, `<h1></h1>`, `<div></div>`
 
 some inline elements: `<em></em>`, `<strong></strong>`, `<span></span>`
 
 ### Attributes
 
-An element might sometimes needs more information. Consider the element name `<p>` where can you put more information?
+Let's give our elements more ability. An element might sometimes needs more information. Consider the element name `<p>` where can you put more information?
 
 > inside the `< >`, after the `p`
 
 * a hyperlink needs to know **where** to take you: `href`
 * an image needs to know the filename: `src`
+
+this code goes in 3 parts:
+
+1. attribute
+2. equal sign
+3. what the attribute equals, sometimes in "" marks
 
 ### Invisible Elements
 
@@ -180,7 +198,7 @@ CSS can change color, background-color, font, font-size, adjust padding and marg
 
 > each browser comes with a default setting for font sizes, margins, colors, all decisions made by human designers. you can change these.
 
-css the language has a selector followed by curly braces `{ }` if you want to style an `h1 {  }`, 
+CSS the language has a selector followed by curly braces `{ }` if you want to style an `h1 {  }`, 
 the entire HTML document: `html { }`
 every element on the page `*{ }` (* is a placeholder)
 this is the targeting system. we actually have to add code:
@@ -195,6 +213,15 @@ h1{
   border: 2px solid black;
 }
 ```
+in class, make this document:
+
+```
+<br><br><br><br><br><br>
+<h1>Robby</h1>
+<p>this is my business card</p>
+<img src="">
+```
+
 ### Exercise, hyperlink between 2 files
 
 * `<a href="two.html">my link text</a>`
@@ -342,6 +369,12 @@ var string1 = "123 Robby! #😇✌️😀";
 Why do we need `" "` marks?
 
 > *so the computer knows we're not writing a variable name! Also we can put spaces in there.*
+
+like, we could do a variable = another variable
+
+```javascript
+var string1 = string2
+```
 
 #### Unicode
 
@@ -871,6 +904,11 @@ the advantage to putting it in the function is we can run the code
 > function names are followed by `()` that's how the computer knows it's a function instead of a variable.
 
 ### Exercise: Random Integer Function
+
+there are 2 things we're going to learn that functions can do:
+
+* they can be customized with parameters (arguments)
+* they can return a value (they turn into a value)
 
 There is one bit of code we've been repeating over and over in our in-class exercises.
 
